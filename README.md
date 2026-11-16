@@ -111,7 +111,7 @@ La consola imita `cmd.exe` en español (y `X:\Sources` en WinRE) con un sistema 
 ## Cómo se evalúa
 
 - **Nota sobre 10:** 1,4 puntos por misión (8,4) + 1,6 repartidos entre los 6 tests de teoría.
-- **Tests:** solo cuenta el **primer intento**. Tras responder, la pregunta se cierra y muestra la explicación.
+- **Tests:** solo cuenta el **primer intento**. Tras responder, la pregunta se cierra y muestra la explicación. Las opciones salen en orden aleatorio en cada partida.
 - **Las misiones solo se superan dentro de su misión.** Teclear desde la M1 los comandos de las demás no da puntos: la consola responde lo que respondería ese equipo.
 - **Insignias:** una por misión (la de M3 exige no hacer saltar el asistente gráfico y la de M6 acertar a la primera), *Erudito Técnico* por acertar los 6 tests y *Expert Debugger* por superar las 6 misiones sin pedir ninguna pista.
 - **Expediente:** el alumno escribe su nombre y lo imprime o lo guarda en PDF desde el propio navegador.

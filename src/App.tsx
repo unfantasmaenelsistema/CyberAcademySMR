@@ -46,6 +46,7 @@ import {
 } from './components/TerminalAuditPanel';
 import { soundFX } from './utils/soundEffects';
 import { loadProgress, saveProgress, clearProgress, calculateGrade as computeGrade } from './engine/progress';
+import { buildQuizOptionOrders } from './engine/quiz';
 import iconoUrl from './assets/icono.png';
 import {
   SMR_THEORY_SHEETS,
@@ -474,6 +475,14 @@ export default function App() {
   );
   const [helpdeskResuelto, setHelpdeskResuelto] = useState<boolean>(initialProgress.helpdeskResuelto);
   const [helpdeskOptionOrder] = useState<HelpdeskChoice[]>(shuffleHelpdeskOptions);
+  // Orden barajado de las opciones de cada test de teoría (fijo durante la sesión)
+  const [quizOptionOrders] = useState<Record<number, number[]>>(() =>
+    buildQuizOptionOrders(
+      Object.fromEntries(
+        Object.entries(SMR_THEORY_SHEETS).map(([mission, sheet]) => [mission, sheet.examQuestion.options.length])
+      )
+    )
+  );
 
   const populateDefaultArpResolution = useCallback(() => {
     setArpCacheEntries((prev) => (prev.length > 0 ? prev : createInitialArpCache()));
@@ -6640,7 +6649,10 @@ export default function App() {
                   </div>
                   <p className="text-white font-medium">{activeTheory.examQuestion.question}</p>
                   <div className="space-y-1.5 pt-1">
-                    {activeTheory.examQuestion.options.map((opt, idx) => {
+                    {(
+                      quizOptionOrders[currentMission] ?? activeTheory.examQuestion.options.map((_, i) => i)
+                    ).map((idx) => {
+                      const opt = activeTheory.examQuestion.options[idx];
                       const isSelected = quizSelectedAnswer === idx;
                       const isCorrect = idx === activeTheory.examQuestion.correctIndex;
                       const revealCorrect = quizAlreadyAnswered && isCorrect;

@@ -248,7 +248,7 @@ export const SMR_ACHIEVEMENTS: AchievementDef[] = [
     title: 'Erudito Técnico SMR (Matrícula 10/10)',
     englishSubtitle: 'Full Curriculum Exam Mastery',
     description:
-      'Responde correctamente a las 6 preguntas teóricas de autoevaluación de los módulos MF0219_2, MF0220_2 y MF0222_2.',
+      'Responde correctamente a las 6 preguntas teóricas de autoevaluación de los módulos MF0219_2, MF0220_2, MF0221_2 y MF0222_2.',
     conditionLabel: 'Acertar los 6 tests teóricos SMR',
     iconType: 'scholar',
   },
